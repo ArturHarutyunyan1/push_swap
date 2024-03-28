@@ -19,10 +19,10 @@ void sb(t_stack **stack)
     ft_printf("sb\n");
 }
 
-void ss(t_stack **stack)
+void ss(t_stack **stack_a, t_stack **stack_b)
 {
-    sa(stack);
-    sb(stack);
+    sa(stack_a);
+    sb(stack_b);
     ft_printf("ss\n");
 }
 

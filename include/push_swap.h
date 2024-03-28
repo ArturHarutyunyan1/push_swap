@@ -20,7 +20,8 @@ int validator(int argc, char **argv);
 int is_all_num(int argc, char **argv);
 int has_duplicates(int argc, char **argv);
 
-void initialize_stack(t_stack **stack);
+void push(t_stack **stack, int num);
+void add_to_stack(t_stack **stack_a, int argc ,char **argv);
 void sa(t_stack **stack);
 void sb(t_stack **stack);
 void ss(t_stack **stack_a, t_stack **stack_b);
@@ -33,5 +34,6 @@ void rra(t_stack **stack);
 void rrb(t_stack **stack);
 void rrr(t_stack **stack_a, t_stack **stack_b);
 
+t_stack *create_node(int num);
 
 #endif

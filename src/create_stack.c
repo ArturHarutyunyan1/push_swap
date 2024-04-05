@@ -1,87 +1,84 @@
 #include "../include/push_swap.h"
 
-t_stack 	*ft_lstnew(int num)
+t_stack	*ft_lstnew(int num)
 {
-    t_stack 	*str;
+	t_stack	*str;
 
-    str = (t_stack *)malloc(sizeof(t_stack));
-    if (!str)
-        return (NULL);
-    str->num = num;
-    str->next = NULL;
-    return (str);
+	str = (t_stack *)malloc(sizeof(t_stack));
+	if (!str)
+		return (NULL);
+	str->num = num;
+	str->next = NULL;
+	return (str);
 }
 
-void push_to_stack(t_stack **stack, int num)
+void	push_to_stack(t_stack **stack, int num)
 {
-    t_stack *node;
-    t_stack *temp;
+	t_stack	*node;
+	t_stack	*temp;
 
-    node = ft_lstnew(num);
-    if ((*stack) == NULL)
-        (*stack) = node;
-    else
-    {
-        temp = (*stack);
-        while (temp->next != NULL)
-            temp = temp->next;
-        temp->next = node;
-    }
+	node = ft_lstnew(num);
+	if ((*stack) == NULL)
+		(*stack) = node;
+	else
+	{
+		temp = (*stack);
+		while (temp->next != NULL)
+			temp = temp->next;
+		temp->next = node;
+	}
 }
 
-void set_index(t_stack **stack)
+void	set_index(t_stack **stack)
 {
-    t_stack *cur;
-    t_stack *ptr;
+	t_stack	*cur;
+	t_stack	*ptr;
 
-    ptr = (*stack);
-    while (ptr)
-    {
-        ptr->index = 0;
-        ptr = ptr->next;
-    }
-    cur = (*stack);
-    while (cur)
-    {
-        ptr = (*stack);
-        while (ptr)
-        {
-            if (cur->num > ptr->num)
-                cur->index += 1;
-            ptr = ptr->next;
-        }
-        cur = cur->next;
-    }
+	ptr = (*stack);
+	while (ptr)
+	{
+		ptr->index = 0;
+		ptr = ptr->next;
+	}
+	cur = (*stack);
+	while (cur)
+	{
+		ptr = (*stack);
+		while (ptr)
+		{
+			if (cur->num > ptr->num)
+				cur->index += 1;
+			ptr = ptr->next;
+		}
+		cur = cur->next;
+	}
 }
 
-void add_to_stack(t_stack **stack, int argc, char **argv)
+void	add_to_stack(t_stack **s, int argc, char **argv)
 {
-    int i;
-    int j;
-    int num;
-    char **str;
+	int		i;
+	int		j;
+	int		n;
+	char	**str;
 
-    i = 1;
-    while (i < argc)
-    {
-        if (ft_strchr(argv[i], ' '))
-        {
-            str = ft_split(argv[i], ' ');
-            j = 0;
-            while (str[j])
-            {
-                num = ft_atoi(str[j]);
-                push_to_stack(stack, num);
-                j++;
-            }
-            free (str);
-        }
-        else
-        {
-            num = ft_atoi(argv[i]);
-            push_to_stack(stack, num);
-        }
-        i++;
-    }
-    set_index(stack);
+	i = 0;
+	while (++i < argc)
+	{
+		if (ft_strchr(argv[i], ' '))
+		{
+			str = ft_split(argv[i], ' ');
+			j = -1;
+			while (str[++j])
+			{
+				n = ft_atoi(str[j]);
+				push_to_stack(s, n);
+			}
+			free(str);
+		}
+		else
+		{
+			n = ft_atoi(argv[i]);
+			push_to_stack(s, n);
+		}
+	}
 }

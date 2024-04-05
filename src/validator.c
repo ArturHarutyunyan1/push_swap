@@ -4,13 +4,13 @@ bool validator(int argc, char **argv)
 {
     int i;
     int j;
+    char **ret;
 
     i = 1;
-    j = 0;
     while (i < argc)
     {
         j = 0;
-        char **ret = ft_split(argv[i], ' ');
+        ret = ft_split(argv[i], ' ');
         while (ret[j])
         {
             if (is_all_num(ret) || has_duplicate_string(ret) || has_duplicate(argc, argv))
@@ -20,6 +20,7 @@ bool validator(int argc, char **argv)
             else
                 j++;
         }
+        free_split(ret); // Free the split strings
         i++;
     }
     return (false);

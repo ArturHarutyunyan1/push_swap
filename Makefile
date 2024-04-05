@@ -20,7 +20,8 @@ SRCS = $(SRC_DIR)/main.c \
        $(UTILS_DIR)/ft_split.c \
        $(UTILS_DIR)/ft_strchr.c \
        $(UTILS_DIR)/ft_strcmp.c \
-       $(UTILS_DIR)/ft_strlen.c
+       $(UTILS_DIR)/ft_strlen.c \
+       $(UTILS_DIR)/utils.c
 
 OBJS = $(SRCS:.c=.o)
 

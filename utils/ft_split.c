@@ -21,16 +21,15 @@ static size_t	count_words(const char *s, char c)
     return (count);
 }
 
-static char	*ft_strndup(const char *str, size_t n)
+static char *ft_strndup(const char *str, size_t n)
 {
-    size_t	len;
-    char	*dup;
+    size_t len;
+    char *dup;
 
-    if (n < ft_strlen(str))
+    len = ft_strlen(str);
+    if (n < len)
         len = n;
-    else
-        len = ft_strlen(str);
-    dup = malloc((len + 1) * sizeof(char));
+    dup = malloc((len + 1) * sizeof(char)); // Allocate memory for len + 1 characters
     if (!dup)
         return (NULL);
     ft_memmove(dup, str, len);
@@ -38,12 +37,12 @@ static char	*ft_strndup(const char *str, size_t n)
     return (dup);
 }
 
-char	**ft_split(char const *s, char c)
+char    **ft_split(char const *s, char c)
 {
-    char	**result;
-    size_t	word_count;
-    size_t	word_len;
-    size_t	i;
+    char    **result;
+    size_t  word_count;
+    size_t  word_len;
+    size_t  i;
 
     if (!s)
         return (NULL);
@@ -59,8 +58,16 @@ char	**ft_split(char const *s, char c)
         word_len = 0;
         while (s[word_len] && s[word_len] != c)
             word_len++;
-        result[i++] = ft_strndup(s, word_len);
+        result[i] = ft_strndup(s, word_len);
+        if (!result[i])
+        {
+            while (i > 0)
+                free(result[--i]); // Free previously allocated words
+            free(result); // Free the array itself
+            return (NULL);
+        }
         s += word_len;
+        i++;
     }
     result[i] = NULL;
     return (result);

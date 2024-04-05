@@ -23,5 +23,6 @@ int main(int argc, char **argv)
     stack_a = NULL;
     stack_b = NULL;
     add_to_stack(&stack_a, argc, argv);
+    sa(&stack_a);
     display(&stack_a);
 }

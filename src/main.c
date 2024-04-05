@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     stack_a = NULL;
     stack_b = NULL;
     add_to_stack(&stack_b, argc, argv);
-    rb(&stack_b);
+    rra(&stack_b);
     printf("Stack a\n");
     display(&stack_a);
     printf("Stack b\n");

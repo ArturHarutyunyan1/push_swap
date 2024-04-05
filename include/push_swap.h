@@ -25,7 +25,10 @@ void pb(t_stack **stack_a, t_stack **stack_b);
 void ra(t_stack **stack_a);
 void rb(t_stack **stack);
 void rr(t_stack **stack_a, t_stack **stack_b);
-
+void rra(t_stack **stack);
+void rra(t_stack **stack);
+void rrb(t_stack **stack);
+void rrr(t_stack **stack_a, t_stack **stack_b);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void push_to_stack(t_stack **stack, int num);
 void add_to_stack(t_stack **stack, int argc, char **argv);

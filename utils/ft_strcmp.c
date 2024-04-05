@@ -1,4 +1,4 @@
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
 int ft_strcmp(const char *str1, const char *str2)
 {

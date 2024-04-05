@@ -1,4 +1,4 @@
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
 bool validator(int argc, char **argv)
 {

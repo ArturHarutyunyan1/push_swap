@@ -31,6 +31,7 @@ void rrb(t_stack **stack);
 void rrr(t_stack **stack_a, t_stack **stack_b);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void push_to_stack(t_stack **stack, int num);
+void set_index(t_stack **stack);
 void add_to_stack(t_stack **stack, int argc, char **argv);
 bool validator(int argc, char **argv);
 bool is_all_num(char **str);
@@ -41,6 +42,16 @@ char	*ft_strchr(const char *str, int c);
 int	ft_isdigit(int c);
 int ft_strcmp(const char *str1, const char *str2);
 int	ft_atoi(const char *str);
+
+void sort_2(t_stack **stack);
+void sort_3(t_stack **stack);
+//void sort_5(t_stack **stack_a, t_stack **stack_b);
+int ft_log(int base, int num);
+int ft_sqrt(int nb);
+int get_pos(t_stack *stack, int i);
+void push_back(t_stack **stack_a, t_stack **stack_b, int size);
+void butterfly(t_stack **stack_a, t_stack **stack_b, int size);
+
 size_t	ft_strlen(const char *str);
 
 #endif

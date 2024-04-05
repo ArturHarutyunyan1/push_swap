@@ -1,4 +1,4 @@
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
 char	*ft_strchr(const char *str, int c)
 {

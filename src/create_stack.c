@@ -1,4 +1,4 @@
-#include "../../include/push_swap.h"
+#include "../include/push_swap.h"
 
 t_stack 	*ft_lstnew(int num)
 {
@@ -26,6 +26,31 @@ void push_to_stack(t_stack **stack, int num)
         while (temp->next != NULL)
             temp = temp->next;
         temp->next = node;
+    }
+}
+
+void set_index(t_stack **stack)
+{
+    t_stack *cur;
+    t_stack *ptr;
+
+    ptr = (*stack);
+    while (ptr)
+    {
+        ptr->index = 0;
+        ptr = ptr->next;
+    }
+    cur = (*stack);
+    while (cur)
+    {
+        ptr = (*stack);
+        while (ptr)
+        {
+            if (cur->num > ptr->num)
+                cur->index += 1;
+            ptr = ptr->next;
+        }
+        cur = cur->next;
     }
 }
 
@@ -58,4 +83,5 @@ void add_to_stack(t_stack **stack, int argc, char **argv)
         }
         i++;
     }
+    set_index(stack);
 }

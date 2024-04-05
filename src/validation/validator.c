@@ -2,9 +2,11 @@
 
 bool validator(int argc, char **argv)
 {
-    int i = 1;
-    int j = 0;
+    int i;
+    int j;
 
+    i = 1;
+    j = 0;
     while (i < argc)
     {
         j = 0;

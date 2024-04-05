@@ -15,7 +15,12 @@ typedef struct s_stack
     struct s_stack *next;
 }t_stack;
 
+t_stack 	*ft_lstnew(int num);
+
+
 void	*ft_memmove(void *dest, const void *src, size_t n);
+void push_to_stack(t_stack **stack, int num);
+void add_to_stack(t_stack **stack, int argc, char **argv);
 bool validator(int argc, char **argv);
 bool is_all_num(char **str);
 bool has_duplicate_string(char **str);
@@ -24,6 +29,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *str, int c);
 int	ft_isdigit(int c);
 int ft_strcmp(const char *str1, const char *str2);
+int	ft_atoi(const char *str);
 size_t	ft_strlen(const char *str);
 
 #endif

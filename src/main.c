@@ -22,8 +22,8 @@ int main(int argc, char **argv)
     validator(argc, argv);
     stack_a = NULL;
     stack_b = NULL;
-    add_to_stack(&stack_a, argc, argv);
-    pb(&stack_a, &stack_b);
+    add_to_stack(&stack_b, argc, argv);
+    rb(&stack_b);
     printf("Stack a\n");
     display(&stack_a);
     printf("Stack b\n");

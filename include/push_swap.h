@@ -7,6 +7,7 @@
 # include <fcntl.h>
 # include <stddef.h>
 # include <stdbool.h>
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -37,20 +38,23 @@ void	rra(t_stack **stack);
 void	rra(t_stack **stack);
 void	rrb(t_stack **stack);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
-
+void check(t_stack **stack);
+void max_range(int argc, char **argv);
 // Helper functions
 void	*ft_memmove(void *dest, const void *src, size_t n);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *str, int c);
 int		ft_isdigit(int c);
 int		ft_strcmp(const char *str1, const char *str2);
-int		ft_atoi(const char *str);
+long long	ft_atoi(const char *str);
 bool	validator(int argc, char **argv);
 bool	is_all_num(char **str);
 bool	has_duplicate_string(char **str);
 bool	has_duplicate(int argc, char **argv);
 void	free_split(char **str);
 size_t	ft_strlen(const char *str);
+
+int is_sorted(t_stack *head);
 
 // Sorting algorithms
 void	sort_2(t_stack **stack);
@@ -62,5 +66,6 @@ int		get_pos(t_stack *stack, int i);
 void	push_back(t_stack **stack_a, t_stack **stack_b, int size);
 void	butterfly(t_stack **stack_a, t_stack **stack_b, int size);
 int		stack_length(t_stack **stack);
+void sort_5(t_stack **stack_a, t_stack **stack_b, int size);
 
 #endif

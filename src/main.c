@@ -6,10 +6,12 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 	int		size;
 
-	validator(argc, argv);
-	stack_a = NULL;
-	stack_b = NULL;
-	add_to_stack(&stack_a, argc, argv);
+    stack_a = NULL;
+    stack_b = NULL;
+    validator(argc, argv);
+    add_to_stack(&stack_a, argc, argv);
+    check(&stack_a);
+    max_range(argc, argv);
 	set_index(&stack_a);
 	size = stack_length(&stack_a);
 	sort(&stack_a, &stack_b, size);

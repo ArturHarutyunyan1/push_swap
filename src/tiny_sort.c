@@ -33,3 +33,27 @@ void	sort_3(t_stack **stack)
 	else if (first->num > third->num && first->num > second->num)
 		ra(stack);
 }
+
+void sort_5(t_stack **stack_a, t_stack **stack_b, int size)
+{
+    int index;
+
+    index = 0;
+    while (size > 3)
+    {
+        if (get_pos((*stack_a), index) == 0)
+        {
+            pb(stack_a, stack_b);
+            index++;
+            size--;
+        }
+        else if (get_pos((*stack_a), index)  >= 1 + size / 2)
+            rra(stack_a);
+        else if (get_pos((*stack_a), index) < 1 + size / 2)
+            ra(stack_a);
+    }
+    if (!is_sorted(*stack_a))
+        sort_3(stack_a);
+    while ((*stack_b))
+        pa(stack_a, stack_b);
+}

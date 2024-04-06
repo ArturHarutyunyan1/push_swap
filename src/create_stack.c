@@ -54,12 +54,12 @@ void	set_index(t_stack **stack)
 	}
 }
 
-void	add_to_stack(t_stack **s, int argc, char **argv)
+void	add_to_stack(t_stack **stack, int argc, char **argv)
 {
-	int		i;
-	int		j;
-	int		n;
-	char	**str;
+	int			i;
+	int			j;
+	long long	n;
+	char		**str;
 
 	i = 0;
 	while (++i < argc)
@@ -71,14 +71,14 @@ void	add_to_stack(t_stack **s, int argc, char **argv)
 			while (str[++j])
 			{
 				n = ft_atoi(str[j]);
-				push_to_stack(s, n);
+				push_to_stack(stack, n);
 			}
 			free(str);
 		}
 		else
 		{
 			n = ft_atoi(argv[i]);
-			push_to_stack(s, n);
+			push_to_stack(stack, n);
 		}
 	}
 }

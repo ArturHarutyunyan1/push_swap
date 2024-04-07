@@ -12,7 +12,7 @@ SRCS = $(SRC_DIR)/main.c \
        $(SRC_DIR)/reverse_rotate.c \
        $(SRC_DIR)/rotate.c \
        $(SRC_DIR)/swap.c \
-       $(SRC_DIR)/tiny_sort.c \
+       $(SRC_DIR)/sort.c \
        $(SRC_DIR)/validator.c \
        $(UTILS_DIR)/ft_atoi.c \
        $(UTILS_DIR)/ft_isdigit.c \
@@ -21,8 +21,7 @@ SRCS = $(SRC_DIR)/main.c \
        $(UTILS_DIR)/ft_strchr.c \
        $(UTILS_DIR)/ft_strcmp.c \
        $(UTILS_DIR)/ft_strlen.c \
-       $(UTILS_DIR)/utils.c		\
-       $(UTILS_DIR)/utils1.c
+       $(UTILS_DIR)/utils.c
 
 OBJS = $(SRCS:.c=.o)
 

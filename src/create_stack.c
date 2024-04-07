@@ -58,7 +58,6 @@ void	add_to_stack(t_stack **stack, int argc, char **argv)
 {
 	int			i;
 	int			j;
-	long long	n;
 	char		**str;
 
 	i = 0;
@@ -69,16 +68,11 @@ void	add_to_stack(t_stack **stack, int argc, char **argv)
 			str = ft_split(argv[i], ' ');
 			j = -1;
 			while (str[++j])
-			{
-				n = ft_atoi(str[j]);
-				push_to_stack(stack, n);
-			}
+				push_to_stack(stack, ft_atoi(str[j]));
 			free(str);
 		}
 		else
-		{
-			n = ft_atoi(argv[i]);
-			push_to_stack(stack, n);
-		}
+			push_to_stack(stack, ft_atoi(argv[i]));
 	}
+    check(stack);
 }

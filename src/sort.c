@@ -57,3 +57,30 @@ void sort_5(t_stack **stack_a, t_stack **stack_b, int size)
     while ((*stack_b))
         pa(stack_a, stack_b);
 }
+
+int is_sorted(t_stack *head) {
+    if (head == NULL || head->next == NULL) {
+        return 1;
+    }
+    t_stack *current = head;
+    while (current->next != NULL) {
+        if (current->num > current->next->num) {
+            return (0);
+        }
+        current = current->next;
+    }
+    return (1);
+}
+void	sort(t_stack **stack_a, t_stack **stack_b, int size)
+{
+    if (is_sorted(*stack_a))
+        return;
+    else if (size == 2)
+        sort_2(stack_a);
+    else if (size == 3)
+        sort_3(stack_a);
+    else if (size == 5)
+        sort_5(stack_a, stack_b, size);
+    else
+        butterfly(stack_a, stack_b, size);
+}

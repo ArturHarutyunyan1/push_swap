@@ -39,7 +39,6 @@ void	rra(t_stack **stack);
 void	rrb(t_stack **stack);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 void check(t_stack **stack);
-void max_range(int argc, char **argv);
 // Helper functions
 void	*ft_memmove(void *dest, const void *src, size_t n);
 char	**ft_split(char const *s, char c);
@@ -67,5 +66,5 @@ void	push_back(t_stack **stack_a, t_stack **stack_b, int size);
 void	butterfly(t_stack **stack_a, t_stack **stack_b, int size);
 int		stack_length(t_stack **stack);
 void sort_5(t_stack **stack_a, t_stack **stack_b, int size);
-
+void print_error(void);
 #endif

@@ -13,11 +13,8 @@ bool	validator(int argc, char **argv)
         ret = ft_split(argv[i], ' ');
         while (ret[j])
         {
-            if (is_all_num(ret) || has_duplicate_string(ret)
-                || has_duplicate(argc, argv))
-            {
+            if (is_all_num(ret))
                 exit(write(2, "Error\n", 6));
-            }
             else
                 j++;
         }
@@ -49,42 +46,21 @@ bool	is_all_num(char **str)
     return (false);
 }
 
-bool	has_duplicate_string(char **str)
+void check(t_stack **stack)
 {
-    int	i;
-    int	j;
+    t_stack *cur;
+    t_stack *temp;
 
-    i = 0;
-    while (str[i])
+    cur = (*stack);
+    while (cur)
     {
-        j = i + 1;
-        while (str[j])
+        temp = cur->next;
+        while (temp)
         {
-            if (ft_strcmp(str[i], str[j]) == 0)
-                return (true);
-            j++;
+            if (cur->num == temp->num)
+                exit(write(2, "Error\n", 6));
+            temp = temp->next;
         }
-        i++;
+        cur = cur->next;
     }
-    return (false);
-}
-
-bool	has_duplicate(int argc, char **argv)
-{
-    int	i;
-    int	j;
-
-    i = 1;
-    while (i < argc)
-    {
-        j = i + 1;
-        while (j < argc)
-        {
-            if (ft_strcmp(argv[i], argv[j]) == 0)
-                return (true);
-            j++;
-        }
-        i++;
-    }
-    return (false);
 }

@@ -18,19 +18,23 @@ bool	validator(int argc, char **argv)
 	char	**ret;
 
 	i = 1;
-	while (i < argc)
+	if (argc <= 1)
+		exit(1);
 	{
-		j = 0;
-		ret = ft_split(argv[i], ' ');
-		while (ret[j])
+		while (i < argc)
 		{
-			if (is_all_num(ret))
-				print_error();
-			else
-				j++;
+			j = 0;
+			ret = ft_split(argv[i], ' ');
+			while (ret[j])
+			{
+				if (is_all_num(ret))
+					print_error();
+				else
+					j++;
+			}
+			free_split(ret);
+			i++;
 		}
-		free_split(ret);
-		i++;
 	}
 	return (false);
 }

@@ -73,7 +73,7 @@ void	butterfly(t_stack **stack_a, t_stack **stack_b, int size)
 	offset = ft_sqrt(size);
 	while (*stack_a)
 	{
-		if ((*stack_a)->index <= offset)
+		if ((*stack_a)->index <= count)
 		{
 			pb(stack_a, stack_b);
 			rb(stack_b);

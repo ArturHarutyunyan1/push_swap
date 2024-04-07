@@ -11,22 +11,9 @@
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-int	ft_log(int base, int num)
-{
-	int	i;
-
-	i = 0;
-	while (num > 1)
-	{
-		num /= base;
-		i++;
-	}
-	return (i);
-}
-
 int	ft_sqrt(int nb)
 {
-	long long	i;
+	int	i;
 
 	i = 1;
 	if (nb == 1)
@@ -83,8 +70,8 @@ void	butterfly(t_stack **stack_a, t_stack **stack_b, int size)
 	int	offset;
 
 	count = 0;
-	offset = ft_log(2, size) + ft_sqrt(size);
-	while ((*stack_a))
+	offset = ft_sqrt(size);
+	while (*stack_a)
 	{
 		if ((*stack_a)->index <= offset)
 		{
@@ -95,7 +82,7 @@ void	butterfly(t_stack **stack_a, t_stack **stack_b, int size)
 		else if ((*stack_a)->index <= offset + count)
 		{
 			pb(stack_a, stack_b);
-			count += 1;
+			count++;
 		}
 		else
 			ra(stack_a);

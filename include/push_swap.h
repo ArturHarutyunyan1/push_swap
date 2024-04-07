@@ -56,17 +56,13 @@ void	print_error(void);
 
 long long	ft_atoi(const char *str);
 int		ft_isdigit(int c);
-int		ft_strcmp(const char *str1, const char *str2);
 int		is_sorted(t_stack *head);
-int		ft_log(int base, int num);
 int		ft_sqrt(int nb);
 int		get_pos(t_stack *stack, int i);
 int		stack_length(t_stack **stack);
 
 bool	validator(int argc, char **argv);
 bool	is_all_num(char **str);
-bool	has_duplicate_string(char **str);
-bool	has_duplicate(int argc, char **argv);
 
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *str, int c);

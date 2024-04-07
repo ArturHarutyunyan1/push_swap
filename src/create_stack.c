@@ -85,5 +85,6 @@ void	add_to_stack(t_stack **stack, int argc, char **argv)
 		else
 			push_to_stack(stack, ft_atoi(argv[i]));
 	}
+	set_index(stack);
 	check(stack);
 }

@@ -23,7 +23,7 @@ long long	ft_atoi(const char *str)
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
-    if (num * neg > INT_MAX || num * neg < INT_MIN)
-        print_error();
-    return (num * neg);
+	if (num * neg > INT_MAX || num * neg < INT_MIN)
+		print_error();
+	return (num * neg);
 }

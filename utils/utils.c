@@ -43,7 +43,7 @@ int	stack_length(t_stack **stack)
 	return (count);
 }
 
-void print_error(void)
+void	print_error(void)
 {
-    exit(write(2, "Error\n", 6));
+	exit(write(2, "Error\n", 6));
 }

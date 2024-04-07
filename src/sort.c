@@ -74,18 +74,18 @@ int	is_sorted(t_stack *stack)
 	t_stack	*cur;
 
 	cur = stack;
-	while (cur)
+	while (cur->next != NULL)
 	{
 		if (cur->num > cur->next->num)
 			return (0);
-		current = current->next;
+		cur = cur->next;
 	}
 	return (1);
 }
 
 void	sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	if (is_sorted(*stack_a))
+	if (size == 1 || is_sorted(*stack_a))
 		return ;
 	else if (size == 2)
 		sort_2(stack_a);

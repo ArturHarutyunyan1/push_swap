@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturhar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:21:43 by arturhar          #+#    #+#             */
-/*   Updated: 2024/04/07 12:21:44 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/04 23:27:47 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 bool	validator(int argc, char **argv)

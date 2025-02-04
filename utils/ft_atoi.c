@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturhar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:26:08 by arturhar          #+#    #+#             */
-/*   Updated: 2024/04/07 12:26:09 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/04 23:04:49 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 long long	ft_atoi(const char *str)
@@ -34,7 +35,7 @@ long long	ft_atoi(const char *str)
 		num = num * 10 + (str[i] - 48);
 		i++;
 	}
-	if (num * neg > INT_MAX || num * neg < INT_MIN)
+	if (ft_strlen(str) > 11 || num * neg > INT_MAX || num * neg < INT_MIN)
 		print_error();
 	return (num * neg);
 }

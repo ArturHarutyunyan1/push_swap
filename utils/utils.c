@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturhar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:26:28 by arturhar          #+#    #+#             */
-/*   Updated: 2024/04/07 12:26:29 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/04 23:19:59 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	free_stack(t_stack **stack)
@@ -26,17 +27,17 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	free_split(char **str)
+void free_split(char **split)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
+    int i = 0;
+    if (!split)
+        return;
+    while (split[i])
+    {
+        free(split[i]);
+        i++;
+    }
+    free(split);
 }
 
 int	stack_length(t_stack **stack)

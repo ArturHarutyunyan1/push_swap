@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturhar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:20:41 by arturhar          #+#    #+#             */
-/*   Updated: 2024/04/07 12:20:47 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/04 23:25:25 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 t_stack	*ft_lstnew(int num)
@@ -77,10 +78,12 @@ void	add_to_stack(t_stack **stack, int argc, char **argv)
 		if (ft_strchr(argv[i], ' '))
 		{
 			str = ft_split(argv[i], ' ');
+			if (!str)
+				print_error();
 			j = -1;
 			while (str[++j])
 				push_to_stack(stack, ft_atoi(str[j]));
-			free(str);
+			free_split(str);
 		}
 		else
 			push_to_stack(stack, ft_atoi(argv[i]));

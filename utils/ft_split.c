@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturhar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:26:18 by arturhar          #+#    #+#             */
-/*   Updated: 2024/04/07 12:26:19 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/04 23:14:52 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 static size_t	count_words(const char *s, char c)
@@ -70,6 +71,13 @@ char	**ft_split(char const *s, char c)
 		while (s[word_len] && s[word_len] != c)
 			word_len++;
 		result[i] = ft_strndup(s, word_len);
+		if (!result[i])
+        {
+            while (i > 0)
+                free(result[--i]);
+            free(result);
+            return (NULL);
+        }
 		s += word_len;
 		i++;
 	}

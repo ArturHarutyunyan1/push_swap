@@ -1,9 +1,11 @@
 NAME = push_swap
+BONUS_NAME = checker
 CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 SRC_DIR = src
-UTILS_DIR = utils
+BONUS_DIR = bonus
+LIBFT_DIR = libft
 
 SRCS = $(SRC_DIR)/main.c \
        $(SRC_DIR)/butterfly.c \
@@ -14,27 +16,42 @@ SRCS = $(SRC_DIR)/main.c \
        $(SRC_DIR)/swap.c \
        $(SRC_DIR)/sort.c \
        $(SRC_DIR)/validator.c \
-       $(UTILS_DIR)/ft_atoi.c \
-       $(UTILS_DIR)/ft_isdigit.c \
-       $(UTILS_DIR)/ft_memmove.c \
-       $(UTILS_DIR)/ft_split.c \
-       $(UTILS_DIR)/ft_strchr.c \
-       $(UTILS_DIR)/ft_strlen.c \
-       $(UTILS_DIR)/utils.c
-
+       $(SRC_DIR)/utils.c
+BONUS_SRC = $(BONUS_DIR)/bonus_sort.c \
+            $(BONUS_DIR)/create_stack.c \
+            $(BONUS_DIR)/push.c \
+            $(BONUS_DIR)/reverse_rotate.c \
+            $(BONUS_DIR)/rotate.c \
+            $(BONUS_DIR)/swap.c \
+            $(BONUS_DIR)/validator.c \
+            $(BONUS_DIR)/checker.c
 OBJS = $(SRCS:.c=.o)
+BOBJS = $(BONUS_SRC:.c=.o)
+LIBFT = $(LIBFT_DIR)/libft.a
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L$(LIBFT_DIR) -lft
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
+$(BONUS_NAME): $(BOBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(BONUS_NAME) $(BOBJS) -L$(LIBFT_DIR) -lft
 
 all: $(NAME)
 
+bonus: $(BONUS_NAME)
+
 clean:
-	$(RM) $(NAME) $(OBJS)
+	make -C $(LIBFT_DIR) clean
+	$(RM) $(OBJS) $(BOBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUS_NAME) $(LIBFT)
 
 re: fclean all
 
-.PHONY: all re fclean clean
+.PHONY: all re fclean clean bonus

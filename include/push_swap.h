@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturhar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:26:31 by arturhar          #+#    #+#             */
-/*   Updated: 2024/04/08 11:45:57 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/05 00:09:58 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -19,6 +21,7 @@
 # include <stddef.h>
 # include <stdbool.h>
 # include <limits.h>
+# include "../libft/include/libft.h"
 
 typedef struct s_stack
 {
@@ -54,7 +57,7 @@ void		push_back(t_stack **stack_a, t_stack **stack_b, int size);
 void		butterfly(t_stack **stack_a, t_stack **stack_b, int size);
 void		print_error(void);
 
-long long	ft_atoi(const char *str);
+// long long	ft_atoi(const char *str);
 int			ft_isdigit(int c);
 int			is_sorted(t_stack *head);
 int			ft_sqrt(int nb);

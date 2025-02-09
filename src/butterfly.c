@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   butterfly.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturhar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:20:29 by arturhar          #+#    #+#             */
-/*   Updated: 2024/04/07 12:22:59 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/08 18:47:11 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 int	ft_sqrt(int nb)
@@ -53,14 +54,14 @@ void	push_back(t_stack **stack_a, t_stack **stack_b, int size)
 	{
 		if ((*stack_b)->index == i)
 		{
-			pa(stack_a, stack_b);
+			pa(stack_a, stack_b, 0);
 			i--;
 			size--;
 		}
 		else if (get_pos(*stack_b, i) >= 1 + size / 2)
-			rrb(stack_b);
+			rrb(stack_b, 0);
 		else if (get_pos(*stack_b, i) < 1 + size / 2)
-			rb(stack_b);
+			rb(stack_b, 0);
 	}
 }
 
@@ -75,17 +76,17 @@ void	butterfly(t_stack **stack_a, t_stack **stack_b, int size)
 	{
 		if ((*stack_a)->index <= count)
 		{
-			pb(stack_a, stack_b);
-			rb(stack_b);
+			pb(stack_a, stack_b, 0);
+			rb(stack_b, 0);
 			count++;
 		}
 		else if ((*stack_a)->index <= offset + count)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 0);
 			count++;
 		}
 		else
-			ra(stack_a);
+			ra(stack_a, 0);
 	}
 	push_back(stack_a, stack_b, size);
 }

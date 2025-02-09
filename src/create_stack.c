@@ -6,23 +6,11 @@
 /*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:20:41 by arturhar          #+#    #+#             */
-/*   Updated: 2025/02/04 23:25:25 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:02:46 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-t_stack	*ft_lstnew(int num)
-{
-	t_stack	*str;
-
-	str = (t_stack *)malloc(sizeof(t_stack));
-	if (!str)
-		return (NULL);
-	str->num = num;
-	str->next = NULL;
-	return (str);
-}
 
 void	push_to_stack(t_stack **stack, int num)
 {

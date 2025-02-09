@@ -27,27 +27,27 @@ static bool isValid(char *str)
 static void performOperation(char *input, t_stack *stack_a, t_stack *stack_b)
 {
     if (ft_strncmp(input, "sa\n", 3) == 0)
-        sa(&stack_a);
+        sa(&stack_a, 1);
     else if (ft_strncmp(input, "sb\n", 3) == 0)
-        sb(&stack_b);
+        sb(&stack_b, 1);
     else if (ft_strncmp(input, "ss\n", 3) == 0)
-        ss(&stack_a, &stack_b);
+        ss(&stack_a, &stack_b, 1);
     else if (ft_strncmp(input, "pa\n", 3) == 0)
-        pa(&stack_a, &stack_b);
+        pa(&stack_a, &stack_b, 1);
     else if (ft_strncmp(input, "pb\n", 3) == 0)
-        pb(&stack_a, &stack_b);
+        pb(&stack_a, &stack_b, 1);
     else if (ft_strncmp(input, "ra\n", 3) == 0)
-        ra(&stack_a);
+        ra(&stack_a, 1);
     else if (ft_strncmp(input, "rb\n", 3) == 0)
-        rb(&stack_b);
+        rb(&stack_b, 1);
     else if (ft_strncmp(input, "rr\n", 3) == 0)
-        rr(&stack_a, &stack_b);
+        rr(&stack_a, &stack_b, 1);
     else if (ft_strncmp(input, "rra\n", 4) == 0)
-        rra(&stack_a);
+        rra(&stack_a, 1);
     else if (ft_strncmp(input, "rrb\n", 4) == 0)
-        rrb(&stack_b);
+        rrb(&stack_b, 1);
     else if (ft_strncmp(input, "rrr\n", 4) == 0)
-        rrr(&stack_a, &stack_b);
+        rrr(&stack_a, &stack_b, 1);
 }
 
 void read_input(t_stack *a, t_stack *b)
@@ -81,9 +81,11 @@ int main(int argc, char **argv)
         validator(argc, argv);
         add_to_stack(&a, argc, argv);    
         read_input(a, b);
-        if (is_sorted(a))
-            write(1, "OK\n", 3);
+        if (is_sorted(a) && ft_lstsize(b) == 0)
+            ft_printf("OK\n");
         else
-            write(1, "KO\n", 3);
+            ft_printf("KO\n");
+    free_stack(&a);
+	free_stack(&b);
     }
 }

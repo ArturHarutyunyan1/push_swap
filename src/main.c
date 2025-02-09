@@ -6,20 +6,11 @@
 /*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:20:55 by arturhar          #+#    #+#             */
-/*   Updated: 2025/02/05 00:23:03 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/08 19:07:10 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-// void print_stack(t_stack *stack)
-// {
-// 	while (stack)
-// 	{
-// 		ft_printf("%d\n", stack->num);
-// 		stack = stack->next;
-// 	}
-// }
 
 int	main(int argc, char **argv)
 {

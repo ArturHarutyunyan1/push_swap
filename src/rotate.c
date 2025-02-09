@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturhar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:21:34 by arturhar          #+#    #+#             */
-/*   Updated: 2024/04/07 12:21:35 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/08 18:48:44 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ra(t_stack **stack)
+void	ra(t_stack **stack, int type)
 {
 	t_stack	*temp;
 	t_stack	*last;
@@ -27,10 +27,11 @@ void	ra(t_stack **stack)
 		last->next = temp;
 		temp->next = NULL;
 	}
-	write(1, "ra\n", 3);
+	if (type == 0)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_stack **stack)
+void	rb(t_stack **stack, int type)
 {
 	t_stack	*temp;
 	t_stack	*last;
@@ -45,12 +46,14 @@ void	rb(t_stack **stack)
 		last->next = temp;
 		temp->next = NULL;
 	}
-	write(1, "rb\n", 3);
+	if (type == 0)
+		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b, int type)
 {
-	ra(stack_a);
-	rb(stack_b);
-	write(1, "rr\n", 3);
+	ra(stack_a, type);
+	rb(stack_b, type);
+	if (type == 0)
+		write(1, "rr\n", 3);
 }

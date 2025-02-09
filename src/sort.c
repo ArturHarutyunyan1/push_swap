@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arturhar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arturhar <arturhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:21:36 by arturhar          #+#    #+#             */
-/*   Updated: 2024/04/07 12:21:37 by arturhar         ###   ########.fr       */
+/*   Updated: 2025/02/08 18:49:45 by arturhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	sort_2(t_stack **stack)
 {
 	if ((*stack)->num > (*stack)->next->num)
-		sa(stack);
+		sa(stack, 0);
 }
 
 void	sort_3(t_stack **stack)
@@ -28,21 +29,21 @@ void	sort_3(t_stack **stack)
 	third = second->next;
 	if (third->num < second->num && second->num < first->num)
 	{
-		sa(stack);
-		rra(stack);
+		sa(stack, 0);
+		rra(stack, 0);
 	}
 	else if (first->num < third->num && second->num > third->num)
 	{
-		ra(stack);
-		sa(stack);
-		rra(stack);
+		ra(stack, 0);
+		sa(stack, 0);
+		rra(stack, 0);
 	}
 	else if (second->num < first->num && first->num < third->num)
-		sa(stack);
+		sa(stack, 0);
 	else if (first->num < second->num && third->num < first->num)
-		rra(stack);
+		rra(stack, 0);
 	else if (first->num > third->num && first->num > second->num)
-		ra(stack);
+		ra(stack, 0);
 }
 
 void	sort_5(t_stack **stack_a, t_stack **stack_b, int size)
@@ -54,19 +55,19 @@ void	sort_5(t_stack **stack_a, t_stack **stack_b, int size)
 	{
 		if (get_pos((*stack_a), index) == 0)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, 0);
 			index++;
 			size--;
 		}
 		else if (get_pos((*stack_a), index) >= 1 + size / 2)
-			rra(stack_a);
+			rra(stack_a, 0);
 		else if (get_pos((*stack_a), index) < 1 + size / 2)
-			ra(stack_a);
+			ra(stack_a, 0);
 	}
 	if (!is_sorted(*stack_a))
 		sort_3(stack_a);
 	while ((*stack_b))
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, 0);
 }
 
 int	is_sorted(t_stack *stack)
